@@ -1,8 +1,9 @@
 version: '3'
+
 services:
   spark-master:
     image: ouail02/spark-node:latest
-    container_name: spark-master
+    container_name: spark-master-1
     hostname: spark-master
     networks:
       - spark-network
@@ -13,11 +14,11 @@ services:
       - "22"
     environment:
       - SPARK_ROLE=master
-    command: bash -c "service ssh start && /opt/spark/sbin/start-master.sh"
-    
+    command: bash -c "service ssh start && /opt/spark/sbin/start-master.sh && tail -f /dev/null"
+
   spark-slave1:
     image: ouail02/spark-node:latest
-    container_name: spark-slave1
+    container_name: spark-slave1-1
     hostname: spark-slave1
     networks:
       - spark-network
@@ -25,11 +26,11 @@ services:
       - "22"
     environment:
       - SPARK_ROLE=slave
-    command: bash -c "service ssh start && /opt/spark/sbin/start-slave.sh spark://spark-master:7077"
+    command: bash -c "service ssh start && /opt/spark/sbin/start-slave.sh spark://spark-master:7077 && tail -f /dev/null"
 
   spark-slave2:
     image: ouail02/spark-node:latest
-    container_name: spark-slave2
+    container_name: spark-slave2-1
     hostname: spark-slave2
     networks:
       - spark-network
@@ -37,8 +38,8 @@ services:
       - "22"
     environment:
       - SPARK_ROLE=slave
-    command: bash -c "service ssh start && /opt/spark/sbin/start-slave.sh spark://spark-master:7077"
+    command: bash -c "service ssh start && /opt/spark/sbin/start-slave.sh spark://spark-master:7077 && tail -f /dev/null"
 
- networks:
+networks:
   spark-network:
     driver: bridge
