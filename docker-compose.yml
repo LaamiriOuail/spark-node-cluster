@@ -11,6 +11,8 @@ services:
       - "7077:7077"
     expose:
       - "22"
+    environment:
+      - SPARK_ROLE=master
     command: bash -c "service ssh start && /opt/spark/sbin/start-master.sh"
     
   spark-slave1:
@@ -21,6 +23,8 @@ services:
       - spark-network
     expose:
       - "22"
+    environment:
+      - SPARK_ROLE=slave
     command: bash -c "service ssh start && /opt/spark/sbin/start-slave.sh spark://spark-master:7077"
 
   spark-slave2:
@@ -31,8 +35,10 @@ services:
       - spark-network
     expose:
       - "22"
+    environment:
+      - SPARK_ROLE=slave
     command: bash -c "service ssh start && /opt/spark/sbin/start-slave.sh spark://spark-master:7077"
 
-networks:
+ networks:
   spark-network:
     driver: bridge

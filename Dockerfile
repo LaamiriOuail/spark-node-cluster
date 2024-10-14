@@ -32,5 +32,8 @@ ENV PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
 # Step 6: Expose necessary ports
 EXPOSE 8080 7077 22
 
-# Step 7: Start SSH and set default command
-CMD ["/bin/bash"]
+COPY start-spark.sh /usr/local/bin/start-spark.sh
+
+RUN chmod +x /usr/local/bin/start-spark.sh
+
+CMD ["/usr/local/bin/start-spark.sh"]
