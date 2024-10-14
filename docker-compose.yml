@@ -1,7 +1,7 @@
 version: '3'
 services:
   spark-master:
-    build: ouail02/spark-node:latest
+    image: ouail02/spark-node:latest
     container_name: spark-master
     hostname: spark-master
     networks:
@@ -14,7 +14,7 @@ services:
     command: bash -c "service ssh start && /opt/spark/sbin/start-master.sh"
     
   spark-slave1:
-    build: ouail02/spark-node:latest
+    image: ouail02/spark-node:latest
     container_name: spark-slave1
     hostname: spark-slave1
     networks:
@@ -24,7 +24,7 @@ services:
     command: bash -c "service ssh start && /opt/spark/sbin/start-slave.sh spark://spark-master:7077"
 
   spark-slave2:
-    build: ouail02/spark-node:latest
+    image: ouail02/spark-node:latest
     container_name: spark-slave2
     hostname: spark-slave2
     networks:
