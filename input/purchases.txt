@@ -1,0 +1,11 @@
+2024-10-01	10:00	New York	Electronics	199.99	Credit Card
+2024-10-01	11:15	Los Angeles	Clothing	49.99	Debit Card
+2024-10-01	12:30	Chicago	Groceries	89.75	Cash
+2024-10-01	13:45	New York	Electronics	299.99	Credit Card
+2024-10-01	14:50	Los Angeles	Home Goods	150.00	Credit Card
+2024-10-01	15:10	Chicago	Clothing	39.99	Cash
+2024-10-02	09:20	New York	Groceries	120.00	Debit Card
+2024-10-02	10:30	Los Angeles	Electronics	499.99	Credit Card
+2024-10-02	11:40	Chicago	Clothing	29.99	Cash
+2024-10-02	12:55	New York	Home Goods	75.00	Credit Card
+2024-10-02	13:10	Los Angeles	Groceries	95.50	Debit Card

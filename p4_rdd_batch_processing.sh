@@ -3,7 +3,7 @@
 # Usage: ./run_spark_rdd_project.sh <container_name>
 if [ -z "$1" ]; then
   echo "Error: Container name not provided."
-  echo "Usage: ./run_spark_rdd_project.sh <container_name>"
+  echo "Usage: ./script.sh <container_name>"
   exit 1
 fi
 
