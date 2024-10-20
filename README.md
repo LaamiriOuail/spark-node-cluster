@@ -35,3 +35,14 @@
             cat part-00000
             ```
 Part 3:
+    - include :
+        1. P5 - Spark SQL 
+    - result :
+        ```bash
+        chmod +x p5_spark_sql.sh
+        ./p5_spark_sql.sh spark-master-1
+        ```
+
+
+
+
