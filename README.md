@@ -18,8 +18,8 @@
         1. P4 - RDD et Batch Processing avec Spark 
     - solution :
         ```bash
-        chmod +x p4_java_code_build.sh
-        chmod +x p4_rdd_batch_processing.sh
+        chmod +x p4_*.sh
+
         ./p4_java_code_build.sh
         ./p4_rdd_batch_processing.sh spark-master-1
         ```
@@ -43,6 +43,14 @@ Part 3:
         ./p5_spark_sql.sh spark-master-1
         ```
 
-
+Part 4:
+    - include :
+        1. P6 - Spark Streaming
+    - result :
+        ```bash
+        chmod +x p6*.sh
+        ./p6_java_code_build.sh
+        ./p6_spark_streaming.sh spark-master-1
+        ```
 
 
