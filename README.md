@@ -34,7 +34,7 @@
             cd /root/output
             cat part-00000
             ```
-Part 3:
+- Part 3:
     - include :
         1. P5 - Spark SQL 
     - result :
@@ -43,7 +43,7 @@ Part 3:
         ./p5_spark_sql.sh spark-master-1
         ```
 
-Part 4:
+- Part 4:
     - include :
         1. P6 - Spark Streaming
     - result :
