@@ -1,37 +1,29 @@
 #!/bin/bash
 
-
 echo "Application"
 
-echo "Example 1: "
+echo "Example 1:"
 
-docker cp input/purchases.txt dokcer-hive:/opt/purchases.txt
+# Copy the input file to the Hive container
+docker cp input/file.txt docker-hive-hive-server-1:/opt/file.txt
 
-docker exec -it docker-hive-hive-server-1 bash
+# Run commands in Hive server container
+docker exec -i docker-hive-hive-server-1 bash -c "
+  /opt/hive/bin/beeline -u jdbc:hive2://localhost:10000 -e \"
+    CREATE TABLE IF NOT EXISTS FILES(line STRING);
+    LOAD DATA LOCAL INPATH '/opt/file.txt' OVERWRITE INTO TABLE FILES;
+    CREATE TABLE IF NOT EXISTS word_counts AS 
+      SELECT word, COUNT(1) AS count 
+      FROM (SELECT explode(split(line, ' ')) AS word FROM FILES) w 
+      GROUP BY word 
+      ORDER BY word;
+    INSERT OVERWRITE TABLE word_counts 
+      SELECT word, COUNT(1) AS count 
+      FROM (SELECT explode(split(line, ' ')) AS word FROM FILES) w 
+      GROUP BY word 
+      ORDER BY word;
+    SELECT * FROM word_counts;
+  \"
+"
 
-/otp/hive/bin/beeline -u jdbc:hive2://localhost:10000
-
-CREATE TABLE FILES(line STRING);
-
-LOAD DATA LOCAL INPATH 'purchases.txt' OVERWRITE INTO TABLE FILES;
-
-CREATE TABLE word_counts AS SELECT word,count(1) AS count FROM (SELECT explode(split(line,' ')) AS word FROM FILES) w GROUP BY word ORDER BY word;
-
-SELECT * FROM word_counts;
-
-exit;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+echo "Example query executed and results displayed."
