@@ -1,0 +1,7 @@
+2024-10-01,22,Store A,Product 1,15.99,Credit Card
+2024-10-01,20,Store B,Product 2,7.50,Cash
+2024-10-02,19,Store A,Product 1,15.99,Debit Card
+2024-10-02,21,Store C,Product 3,9.99,Cash
+2024-10-03,23,Store A,Product 2,7.50,Credit Card
+2024-10-03,25,Store B,Product 3,9.99,Cash
+2024-10-04,24,Store C,Product 1,15.99,Credit Card
